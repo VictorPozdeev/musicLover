@@ -1,14 +1,12 @@
 fun main() {
-    val amount = 100
+    val amount = 10000
     val regularUser = true
     var result: Int
 
-    if (amount >= 10001) {
-        result = amount - (amount * 0.05).toInt()
-    } else if (amount >= 1001 && amount <= 10000) {
-        result = amount - 100
-    } else {
-        result = amount
+    when (amount) {
+        in 0..1000 -> result = amount
+        in 1001..10000 -> result = amount - 100
+        else -> result = amount - (amount * 0.05).toInt()
     }
 
     if (regularUser) {
